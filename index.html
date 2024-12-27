@@ -20,11 +20,11 @@
     </header>
     <main>
         <section class="container">
-            <div class="newTask">
+            <div id="newtask">
                 <input type="text" placeholder="Add Tasks">
                 <button id="push">Add</button>
             </div>
-            <div id="task"></div>
+            <div id="tasks"></div>
         </section>
         <section id="first">
             <h1>Overview of Todo List</h1>
@@ -33,10 +33,34 @@
                 dynamically added or removed from the list using JavaScript, and the list is often stored in memory or a
                 backend database. The goal of a to-do list is to help users stay organized and track their progress on
                 various tasks.</p>
-
         </section>
     </main>
-
+    <script>
+        document.querySelector('#push').onclick = function() {
+            const taskInput = document.querySelector('#newtask input');
+            if (taskInput.value.length == 0) {
+                alert("Kindly Enter Task Name!!!!");
+            } else {
+                document.querySelector('#tasks').innerHTML += `
+                    <div class="task">
+                        <span id="taskname">
+                            ${taskInput.value}
+                        </span>
+                        <button class="delete">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
+                    </div>
+                `;
+                taskInput.value = ""; // Clear the input field
+                const deleteButtons = document.querySelectorAll(".delete");
+                deleteButtons.forEach(button => {
+                    button.onclick = function() {
+                        this.parentNode.remove();
+                    };
+                });
+            }
+        };
+    </script>
 </body>
 
 </html>

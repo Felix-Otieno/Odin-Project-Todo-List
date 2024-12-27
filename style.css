@@ -44,8 +44,8 @@ header {
 
 
 .container{
-    width: 40%;
-    top: 50%;
+    width: 60%;
+    top: 80%;
     left: 50%;
     background: white;
     border-radius: 10px;
@@ -144,6 +144,7 @@ header {
     background-color: #6583e5;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+    
 }
 
 
